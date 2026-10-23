@@ -155,7 +155,7 @@ enum ToolbarGroup {
 }
 
 extension View {
-    /// Plain icons with a fill only under the pointer, as T3 Code's header: the group needs no box of its own.
+    /// Plain icons with a fill only under the pointer: the group needs no box of its own.
     func toolbarGroup() -> some View {
         padding(ToolbarGroup.padding)
     }
@@ -563,7 +563,7 @@ struct DevServerStrip: View {
                 let found = await Task.detached(priority: .utility) { () async -> [DevServer] in
                     // Only listeners that serve a page: not the folder's database or debugger.
                     var servers = await DevServerProbe.pages(DevServerScanner.scan(folder: folder))
-                    // Pages the project names (nook.json / t3.json previewUrl) on localhost, when they are not already found.
+                    // Pages the project names (nook.json previewUrl) on localhost, when they are not already found.
                     for script in ProjectScripts.load(folder: folder) {
                         guard let url = script.previewURL, let port = url.port, BridgeURLPolicy.isLoopback(url.host ?? ""),
                               !servers.contains(where: { $0.port == port }) else { continue }
