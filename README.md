@@ -337,7 +337,8 @@ Found a security vulnerability? Please report it privately via [SECURITY.md](SEC
 | Shared macOS UI components | [`docs/UI-COMPONENTS.md`](docs/UI-COMPONENTS.md) |
 | Windows, Linux & Android (Tauri) | [`docs/TAURI.md`](docs/TAURI.md) |
 | Fine-tuning local models | [`scripts/finetune/README.md`](scripts/finetune/README.md) |
-| What Nook learned from T3 Code (and what is still open) | [`docs/LEARNINGS-T3CODE.md`](docs/LEARNINGS-T3CODE.md) |
+| Model manifest (which models the agent pickers offer) | [`docs/MODEL-MANIFEST.md`](docs/MODEL-MANIFEST.md) |
+| Workspace roadmap | [`docs/ROADMAP.md`](docs/ROADMAP.md) |
 | Third-party attributions | [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md) |
 
 ---

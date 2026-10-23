@@ -1,6 +1,6 @@
 //! Waar een repository woont en wat je ermee kunt (`SourceControlHost`, `GitQuickActions` en het aanmaken van een pull
 //! request uit `CloudConnectors` op de Mac): de host herkennen aan de remote (zonder ooit inloggegevens in een link te
-//! zetten), links naar vergelijken en een nieuwe pull request, de ene git-knop van T3Code, en een pull request op
+//! zetten), links naar vergelijken en een nieuwe pull request, de ene git-knop, en een pull request op
 //! GitHub met je token uit de kluis.
 
 use serde::{Deserialize, Serialize};
@@ -360,7 +360,7 @@ fn query(items: &[(&str, Option<&str>)]) -> String {
 
 // MARK: De git-knop
 
-/// De ene git-knop van T3Code: wat hij doet hangt af van de stand van de branch.
+/// De ene git-knop: wat hij doet hangt af van de stand van de branch.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub enum QuickAction {
@@ -436,7 +436,7 @@ impl QuickReason {
     }
 }
 
-/// De actie, of waarom er niets te doen is (`resolveQuickAction` van T3Code).
+/// De actie, of waarom er niets te doen is (`resolveQuickAction`).
 pub fn resolve(state: &QuickState) -> Result<QuickAction, QuickReason> {
     if state.branch.is_none() {
         return Err(QuickReason::Detached);
