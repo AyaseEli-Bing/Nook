@@ -60,7 +60,7 @@ enum MachineName {
     static let local: String = (SCDynamicStoreCopyComputerName(nil, nil) as String?) ?? "Mac"
 }
 
-/// What you can do with a session at a glance, as in T3Code: the machine it runs on, open its folder in the app you
+/// What you can do with a session at a glance: the machine it runs on, open its folder in the app you
 /// use, run or add a project script, the branch it started from, the one git action its branch needs (with the others
 /// behind the arrow), and what changed. Every git step is your click; the agent only writes the commit message and the
 /// pull request.

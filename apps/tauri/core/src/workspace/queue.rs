@@ -1,4 +1,4 @@
-//! De wachtrij van vervolgberichten per sessie (`MessageQueue` op de Mac, zoals T3Code: volgorde, wissen, bewerken,
+//! De wachtrij van vervolgberichten per sessie (`MessageQueue` op de Mac: volgorde, wissen, bewerken,
 //! nu meesturen). Na een fout, een stop of een herstart staat hij stil, zodat er niets bovenop een probleem verstuurd
 //! wordt; jij zet hem weer aan.
 
