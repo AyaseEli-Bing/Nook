@@ -554,7 +554,7 @@ final class WorkspaceManager: ObservableObject {
                     update(id) { $0.checkpoints = [RunCheckpoint(ref: ref, date: Date())] }
                 }
             }
-            // The project's setup (nook.json / t3.json `runOnWorktreeCreate`), visible in a terminal next to the session.
+            // The project's setup (nook.json `runOnWorktreeCreate`), visible in a terminal next to the session.
             let setup = await Task.detached(priority: .userInitiated) { ProjectScripts.load(folder: worktreePath) }.value
             for script in setup where script.runOnWorktreeCreate {
                 runScript?(worktreePath, script.command, script.name)

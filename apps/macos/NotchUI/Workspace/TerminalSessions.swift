@@ -93,7 +93,7 @@ final class TerminalSession: NSObject, ObservableObject, Identifiable, LocalProc
     }
 }
 
-/// The terminal view, with ⌘-click on a link handled the Nook way (as T3 Code's terminal does): an address on this Mac
+/// The terminal view, with ⌘-click on a link handled the Nook way: an address on this Mac
 /// (`http://localhost:5173`) opens in Nook's browser, any other web address in your browser, and a path the terminal shows
 /// (`./src/app.swift:12:3`, `~/notes.md`, `/abs/file.ts`) in your editor at that line. Other links (`ssh:`, `magnet:`…)
 /// are left alone.
@@ -346,7 +346,7 @@ struct SessionTerminalsView: View {
     }
 }
 
-/// The buttons for a session's terminals, in the panel header: the project's scripts (nook.json / t3.json), one click
+/// The buttons for a session's terminals, in the panel header: the project's scripts (nook.json), one click
 /// each, and + for another terminal in the session's folder.
 struct SessionTerminalActions: View {
     let directory: String

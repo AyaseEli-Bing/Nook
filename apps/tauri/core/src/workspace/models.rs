@@ -75,7 +75,7 @@ impl RunProvider {
         }
     }
 
-    /// Draait over ACP (Agent Client Protocol), zoals T3Code deze agents draait.
+    /// Draait over ACP (Agent Client Protocol).
     pub fn uses_acp(self) -> bool {
         matches!(self, Self::Gemini | Self::Opencode | Self::Cursor | Self::Grok | Self::Antigravity)
     }

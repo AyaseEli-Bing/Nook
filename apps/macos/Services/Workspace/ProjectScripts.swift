@@ -1,6 +1,6 @@
 import Foundation
 
-/// A command a project defines for its sessions, in `nook.json` (or `t3.json`) at the repository root:
+/// A command a project defines for its sessions, in `nook.json` at the repository root:
 /// `{"scripts": [{"id": "dev", "name": "Dev server", "command": "pnpm dev", "runOnWorktreeCreate": false,
 /// "previewUrl": "http://localhost:5173", "autoOpenPreview": true}]}`.
 struct ProjectScript: Equatable, Identifiable, Sendable {
@@ -15,9 +15,9 @@ struct ProjectScript: Equatable, Identifiable, Sendable {
 }
 
 enum ProjectScripts {
-    static let fileNames = ["nook.json", "t3.json"]
+    static let fileNames = ["nook.json"]
 
-    /// The scripts of the project around `folder`: the nearest `nook.json` or `t3.json`, up to the repository root.
+    /// The scripts of the project around `folder`: the nearest `nook.json`, up to the repository root.
     static func load(folder: String) -> [ProjectScript] {
         guard !folder.isEmpty else { return [] }
         let fm = FileManager.default
@@ -38,7 +38,7 @@ enum ProjectScripts {
         return []
     }
 
-    /// The file new scripts go into: the nearest `nook.json` or `t3.json` up to the repository root, else a new
+    /// The file new scripts go into: the nearest `nook.json` up to the repository root, else a new
     /// `nook.json` at that root (or in the folder itself outside a repository).
     static func fileURL(folder: String) -> URL {
         let fm = FileManager.default
