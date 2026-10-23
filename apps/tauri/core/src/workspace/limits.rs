@@ -1,5 +1,5 @@
-//! Een beurt die op een gebruikslimiet stopte (`UsageLimits` en `FailureClassifier` op de Mac), zoals T3Code het
-//! leest: wanneer de limiet weer vrij is, zodat de sessie dan vanzelf verder kan. Claude Code meldt het in
+//! Een beurt die op een gebruikslimiet stopte (`UsageLimits` en `FailureClassifier` op de Mac), zo
+//! gelezen: wanneer de limiet weer vrij is, zodat de sessie dan vanzelf verder kan. Claude Code meldt het in
 //! `rate_limit_event` (status "rejected", `resetsAt`) en in het resultaat (`terminal_reason`, `api_error_status`);
 //! Codex met de foutcode `usageLimitExceeded` en zijn limietstand.
 
@@ -10,7 +10,7 @@ use serde_json::Value;
 
 use super::parsers::number;
 
-/// Wat een sessie stuurt als hij na de reset verdergaat (de tekst van T3Code, voor het model dus Engels).
+/// Wat een sessie stuurt als hij na de reset verdergaat (voor het model, dus Engels).
 pub const RESUME_MESSAGE: &str = "Continue where you left off.";
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -126,7 +126,7 @@ pub enum FailureClass {
     Generic,
 }
 
-/// In lagen, zoals T3Code: eerst de expliciete reden, dan de API-status, dan gestreamde limieten, pas dan de tekst.
+/// In lagen: eerst de expliciete reden, dan de API-status, dan gestreamde limieten, pas dan de tekst.
 pub fn classify(e: &FailureEvidence) -> FailureClass {
     match e.terminal_reason.as_deref() {
         Some("aborted_tools") | Some("aborted_streaming") => return FailureClass::Interrupted,

@@ -1,6 +1,6 @@
 import Foundation
 
-/// How Nook writes a commit message and a pull request (Settings › Workspace), the styles T3 Code offers:
+/// How Nook writes a commit message and a pull request (Settings › Workspace), in one of these styles:
 /// its own concise style, Conventional Commits, the style the repository already uses (read from its recent commits),
 /// or your own instructions.
 enum CommitStyle: String, CaseIterable, Identifiable, Sendable {
