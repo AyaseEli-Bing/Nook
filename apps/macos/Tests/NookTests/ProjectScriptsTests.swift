@@ -1,6 +1,6 @@
 import XCTest
 
-/// nook.json / t3.json: project script definitions, read leniently.
+/// nook.json: project script definitions, read leniently.
 final class ProjectScriptsTests: XCTestCase {
     func testParse() {
         let json = #"{"scripts":[{"id":"dev","name":"Dev server","command":"pnpm dev","previewUrl":"http://localhost:5173","autoOpenPreview":true},{"name":"Install","command":"pnpm install","runOnWorktreeCreate":true},{"name":"Leeg"},{"command":"make test"}]}"#
@@ -17,7 +17,7 @@ final class ProjectScriptsTests: XCTestCase {
         let sub = repo.appendingPathComponent("packages/web")
         try FileManager.default.createDirectory(at: sub, withIntermediateDirectories: true)
         try FileManager.default.createDirectory(at: repo.appendingPathComponent(".git"), withIntermediateDirectories: true)
-        try Data(#"{"scripts":[{"name":"Dev","command":"pnpm dev"}]}"#.utf8).write(to: repo.appendingPathComponent("t3.json"))
+        try Data(#"{"scripts":[{"name":"Dev","command":"pnpm dev"}]}"#.utf8).write(to: repo.appendingPathComponent("nook.json"))
         defer { try? FileManager.default.removeItem(at: repo) }
         XCTAssertEqual(ProjectScripts.load(folder: sub.path).map(\.command), ["pnpm dev"])
     }

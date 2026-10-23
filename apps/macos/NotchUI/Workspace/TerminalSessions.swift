@@ -346,7 +346,7 @@ struct SessionTerminalsView: View {
     }
 }
 
-/// The buttons for a session's terminals, in the panel header: the project's scripts (nook.json / t3.json), one click
+/// The buttons for a session's terminals, in the panel header: the project's scripts (nook.json), one click
 /// each, and + for another terminal in the session's folder.
 struct SessionTerminalActions: View {
     let directory: String
